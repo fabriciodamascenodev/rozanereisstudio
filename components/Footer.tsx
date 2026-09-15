@@ -146,10 +146,18 @@ export default function Footer() {
           {/* Bottom Bar */}
           <div className="mt-12 pt-8 border-t border-primary-700 flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-cream-400 text-sm">
-              © {currentYear} Rozane Reis Studio. Todos os direitos reservados.
+              © 2008 - {currentYear} Rozane Reis Studio. Todos os direitos reservados.
             </p>
-            <p className="text-cream-400 text-sm flex items-center gap-1">
-              Feito com <Heart className="w-4 h-4 text-accent" /> em Alcântara, São Gonçalo
+            <p className="text-cream-400 text-sm">
+              Desenvolvido por{' '}
+              <a
+                href="https://fd-solucoesdigitais.online"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-accent hover:text-accent-300 transition-colors underline"
+              >
+                FD Soluções Digitais
+              </a>
             </p>
           </div>
         </div>
