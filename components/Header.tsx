@@ -97,6 +97,17 @@ export default function Header() {
               <Instagram className="w-5 h-5" />
             </a>
             <a
+              href="https://www.tiktok.com/@rozanereis86"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary hover:text-accent transition-colors duration-300"
+              aria-label="TikTok"
+            >
+              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 0010.86 4.48V13.2a8.16 8.16 0 005.58 2.19V12a4.85 4.85 0 01-3.77-1.64V6.69h3.77z" />
+              </svg>
+            </a>
+            <a
               href="https://wa.me/5521972354281?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20um%20horário."
               target="_blank"
               rel="noopener noreferrer"
