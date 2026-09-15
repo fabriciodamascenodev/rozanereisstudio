@@ -18,15 +18,15 @@
 
 @layer components {
   .btn-primary {
-    @apply bg-primary text-cream px-8 py-4 rounded-full font-medium transition-all duration-300 hover:bg-primary-600 hover:shadow-lg hover:scale-105 active:scale-95;
+    @apply bg-primary text-cream px-8 py-4 rounded-full font-medium transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] hover:bg-primary-600 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98];
   }
   
   .btn-accent {
-    @apply bg-accent text-primary px-8 py-4 rounded-full font-medium transition-all duration-300 hover:bg-accent-600 hover:shadow-lg hover:scale-105 active:scale-95;
+    @apply bg-accent text-primary px-8 py-4 rounded-full font-medium transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] hover:bg-accent-600 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98];
   }
   
   .btn-outline {
-    @apply border-2 border-primary text-primary px-8 py-4 rounded-full font-medium transition-all duration-300 hover:bg-primary hover:text-cream;
+    @apply border-2 border-primary text-primary px-8 py-4 rounded-full font-medium transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] hover:bg-primary hover:text-cream;
   }
   
   .section-padding {
@@ -36,6 +36,69 @@
   .container-custom {
     @apply max-w-7xl mx-auto;
   }
+}
+
+/* Scroll Animation Classes */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(32px) blur(4px);
+  transition: all 800ms cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.scroll-reveal.visible {
+  opacity: 1;
+  transform: translateY(0) blur(0);
+}
+
+.scroll-reveal-left {
+  opacity: 0;
+  transform: translateX(-48px) blur(4px);
+  transition: all 800ms cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.scroll-reveal-left.visible {
+  opacity: 1;
+  transform: translateX(0) blur(0);
+}
+
+.scroll-reveal-right {
+  opacity: 0;
+  transform: translateX(48px) blur(4px);
+  transition: all 800ms cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.scroll-reveal-right.visible {
+  opacity: 1;
+  transform: translateX(0) blur(0);
+}
+
+.scroll-zoom {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: all 800ms cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.scroll-zoom.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Stagger delays for children */
+.stagger-children > *:nth-child(1) { transition-delay: 0ms; }
+.stagger-children > *:nth-child(2) { transition-delay: 100ms; }
+.stagger-children > *:nth-child(3) { transition-delay: 200ms; }
+.stagger-children > *:nth-child(4) { transition-delay: 300ms; }
+.stagger-children > *:nth-child(5) { transition-delay: 400ms; }
+.stagger-children > *:nth-child(6) { transition-delay: 500ms; }
+
+/* Tagline reveal */
+.tagline-word {
+  opacity: 0.25;
+  transition: opacity 600ms cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.tagline-word.active {
+  opacity: 1;
 }
 
 @layer utilities {

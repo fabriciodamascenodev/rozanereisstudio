@@ -2,8 +2,15 @@
 
 import Image from 'next/image'
 import { MessageCircle, ChevronDown, Sparkles, Award } from 'lucide-react'
+import { useEffect, useState } from 'react'
 
 export default function Hero() {
+  const [isLoaded, setIsLoaded] = useState(false)
+
+  useEffect(() => {
+    setIsLoaded(true)
+  }, [])
+
   const scrollToServices = () => {
     const element = document.querySelector('#servicos')
     if (element) {
@@ -25,7 +32,7 @@ export default function Hero() {
       <div className="container-custom mx-auto px-4 md:px-8 lg:px-16 pt-24 pb-12 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Content */}
-          <div className="order-2 lg:order-1 animate-slide-up">
+          <div className={`order-2 lg:order-1 transition-all duration-1000 ease-[cubic-bezier(0.32,0.72,0,1)] ${isLoaded ? 'opacity-100 translate-y-0 blur-0' : 'opacity-0 translate-y-12 blur-sm'}`}>
             <div className="inline-flex items-center gap-2 bg-accent/10 text-accent px-4 py-2 rounded-full mb-6">
               <Sparkles className="w-4 h-4" />
               <span className="text-sm font-medium">Desde 2008 realçando belezas reais</span>
@@ -85,7 +92,7 @@ export default function Hero() {
           </div>
 
           {/* Hero Image */}
-          <div className="order-1 lg:order-2 relative">
+          <div className={`order-1 lg:order-2 relative transition-all duration-1000 delay-200 ease-[cubic-bezier(0.32,0.72,0,1)] ${isLoaded ? 'opacity-100 translate-y-0 blur-0' : 'opacity-0 translate-y-12 blur-sm'}`}>
             <div className="relative w-full aspect-[4/5] max-w-lg mx-auto">
               {/* Decorative elements */}
               <div className="absolute -top-4 -right-4 w-full h-full bg-accent/20 rounded-3xl transform rotate-3" />
