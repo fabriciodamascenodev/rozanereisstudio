@@ -1,46 +1,24 @@
 'use client'
 
-import { useRef, useEffect, useState } from 'react'
+import { useRef, useEffect } from 'react'
 import { MessageCircle, ArrowRight, Sparkles } from 'lucide-react'
 
 export default function Transform() {
   const videoRef = useRef<HTMLVideoElement>(null)
-  const containerRef = useRef<HTMLDivElement>(null)
-  const [scrollProgress, setScrollProgress] = useState(0)
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (containerRef.current) {
-        const rect = containerRef.current.getBoundingClientRect()
-        const windowHeight = window.innerHeight
-        const elementHeight = rect.height
-        
-        // Calculate how far through the section we've scrolled
-        const start = windowHeight
-        const end = -elementHeight
-        const progress = Math.max(0, Math.min(1, (start - rect.top) / (start - end)))
-        
-        setScrollProgress(progress)
-      }
+    const video = videoRef.current
+    if (video) {
+      video.play().catch(() => {})
     }
-
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
   }, [])
-
-  useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.currentTime = scrollProgress * videoRef.current.duration
-    }
-  }, [scrollProgress])
 
   return (
     <section
       id="transformacao"
-      ref={containerRef}
-      className="relative min-h-[150vh] bg-gradient-to-b from-primary to-primary-800"
+      className="relative min-h-screen bg-gradient-to-b from-primary to-primary-800"
     >
-      <div className="sticky top-0 h-screen flex items-center overflow-hidden">
+      <div className="min-h-screen flex items-center overflow-hidden">
         <div className="container-custom mx-auto px-4 md:px-8 lg:px-16">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Content */}
@@ -109,22 +87,10 @@ export default function Transform() {
                   className="w-full h-full object-cover"
                   playsInline
                   muted
+                  loop
+                  autoPlay
                   preload="auto"
                 />
-                
-                {/* Progress Indicator */}
-                <div className="absolute bottom-4 left-4 right-4">
-                  <div className="bg-white/20 backdrop-blur-sm rounded-full h-2 overflow-hidden">
-                    <div
-                      className="h-full bg-accent transition-all duration-100"
-                      style={{ width: `${scrollProgress * 100}%` }}
-                    />
-                  </div>
-                  <div className="flex justify-between mt-2 text-xs text-white/80">
-                    <span>Antes</span>
-                    <span>Depois</span>
-                  </div>
-                </div>
               </div>
 
               {/* Decorative Elements */}
